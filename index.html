@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Ashley's Git Notes</title>
+    <meta name="description"
+          content="A collection of notes on learning Git, Github, and the Command Line Interface" />
+    <style type="text/css"> 
+    .header {
+      color: black; 
+      text-align: center;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      block-size: auto;
+      background-color: rgba(203, 128, 238, 0.285);
+      border-radius: 20px;
+     }
+
+    #introduction {
+      text-align: left;
+      color: black;
+     }
+
+    #_gitcommands {
+      text-align: center;
+      color: black; 
+      }
+
+    .column1of2, .column2of2 {
+      color: black;
+      background-color: rgba(203, 128, 238, 0.285);
+      float: left;
+      width: 920px;
+      margin: 10px; 
+    }
+    
+    
+    </style>
+  </head>
+  <body>
+    <div class="wrapper"> 
+      <div class="header">
+      <h1>Notes on Git, Github and the Command Line Interface</h1>
+      <p><i>With commentary on using Visual Studio Code (VSC)</i></p>
+      <h3>
+        <i>By Ashley Cutlip</i>
+      </h3>
+      </div>
+    </div>
+
+    <div id="introduction"> 
+      <h2>Getting Started with Git, Github and the Command Line Interface</h2>
+      
+      <h3>What is "Git" and "Github"?</h3>
+      <p> <b>Git</b> is a <i>Version Control System</i> used to track and manage programming and coding projects. It keeps a snapshot of all changes and updates made to a project (i.e. all <i>versions</i> of a project) so that changes can be tracked, edited and managed from any point in time. It also allows for others to collaborate on a shared project when it's uploaded to an online cloud-based platform like, <a href="https://github.com/">Github</a>.</p>
+      <p><i>Note:</i> When developers are working on a project, that project is called a <i>repository</i> (or <i>repo</i> for short).</p> 
+      <p><b>Github</b> is a popular cloud-based platform that developers can use to store, edit and manage their <i>repositories</i> remotely. This is especially helpful when working on group projects or if developers need to use other computers (like a work computer) to access their projects. Turning a project into a <i>"git repo"</i> allows developers to upload local projects (i.e. projects made on their computer) onto a remote (online) platform. </p>
+    </div>
+
+    <div id="_gitcommands">
+      <h2>Basic Git Commands:</h2>
+        <p>Below is a list of git commands and a description of what they do.</p>
+        <p><i><b>Commands</b> are shown here with `backtics` around them. <b>Options</b> use (-, --) dashes and give additional instruction for the command. Text found in between greater than and less than symbols (&lt; ... &gt;) signifies a blank space to add your own text in. Often used when naming things</i> .</p> 
+    </div> 
+    <div class="column1of2">    
+      <dl>
+        <dt><b>`git init`</b></dt>
+          <dd>Turns a local project into a git repository so that it can be uploaded (or, <i>pushed</i>) online and edited remotely.</dd>
+        <dt><b>`git status`</b></dt>
+          <dd>Shows files that have been added or modified in a repository. <i>Save changes in VSC by pressing "command+s". Any unsaved file in VSC will have a white dot that appears in the tab. Local files will need to be saved by typing esc and :w.</i></dd> 
+        <dt><b>`git add`</b></dt>
+          <dd>Stages selected files (or all files if I simply type . instead of each individual file) to be committed. Don't forget to add a commit message -m "Adds a Commit message" -m "Adds additional content." If I do forget, the command line will ask me to add a message anyway. I need to write it in quotes for it to accept my message. Use single quotes for quoting in the command line when writing messages in double quotes! Duh!</dd>
+          <dt><b>`git commit`</b></dt>
+          <dd>Commits/makes those changes locally but doesn't publish those changes onto Github until I push them there. <i>(For modified files, i.e. not newly created ones, I can skip `git add .` and use `git commit -am "commit message"` which adds and commits with a message at the same time.)</i></dd>
+          <dt><b>`git push`</b></dt>
+          <dd><i>Remember to save files locally before pushing them into a remote repo. (In VSC, type ctrl+s to save README.md, for instance. Or esc :w if in an html doc.)</i> When pushing to an online repo for the first time, set an upstream location to push everything to. The command line will suggest how to establish an upstream location. Type `git push --set-upstream origin main` or `git push -u origin main` for short. Once that connection is established, easily publish all commits with `git push`.<I> (However, you will need to connect local a repo with online repo first by using `git remote + ssh location.` See instructions in "git remote" below.)</i></dd>
+          <dt><b>`git pull`</b></dt>
+          <dd>The opposite of push. If I modify a file or add something to a repository on Github or another host, I can pull it from there and have those changes appear on my local machine. I do not need to add a location after the command like I would with git clone because the file in my local terminal should already be associated with the repo in Github. Assuming I have connected my local machine with Github via an ssh key.</dd>
+          <dt><b>`git clone`</b></dt>
+          <dd>If there is a repo that IS NOT on my local machine but I want to bring it down to use on my machine, I use the git clone plus location of the file (ssh clone address) which can be found in the "code" button on Github.</dd>
+          <dt><b>`git remote`</b></dt>
+        - Allows a local repository to be connected to an online repo. Use `git remote add origin <ssh link>` to connect it. 
+        - `git remote -v` shows any repositories that are connected to the local repo.   
+        </dl>
+    </div>
+    <div class="column2of2"> 
+      <dl>
+        <dt><b>`git branch`</b></dt>
+          <dd>Let's me know what branch I am working in. To move to another existing branch, use `git checkout <name>`.</dd>
+         <dt><b>`git checkout`</b></dt>
+          <dd>Let's me switch between branches within a repo. If I want to work on a side project, say in a README.md file within the repo, but do not want to push commits to the main project yet, I can create a new branch with `git checkout -b` and then name it with something like, &lt;feature-README-instructions&gt;. ("Git checkout" --> switches branches, "-b" --> an option used to create a new branch, "feature-" good way to start a branch name, "README-"--> the name of the file I am working on, "instructions-"--> additional description as I may have several branches named feature-README, or may be working in a team with others who are also working on README branches, for instance.) 
+        - Once the branch is created with -b, I can simply go back and forth between versions of README for instance in either branch (main or feature...) with `git checkout <name of branch>`. I can also stage, commit and push those changes onto Github without replacing the original main branch version of the side project until I am ready. 
+        - But before I can push commits from a new branch onto Github, I will need to establish an upstream location and tell it where to go. The command line will tell me how to do this, but it looks like this: `git push --set-upstream origin feature-README-instructions` or `git push -u ...` 
+        - <i>I can create a pull request "PR", on Github when I am ready to merge branches. Then I need to use, </i> `git pull` <i>to bring that merge back down into my local main branch.</i>
+          <li>`git diff <branch name>`</li>
+        - Lets me know what things are different between branches. Useful before merging branches.
+          <li>`git stash`</li>
+        - Git will not let branches merge until changes between files are reconciled. Git stash let's you hold onto file changes without having to commit to those changes. 
+          <li>`git merge`</li>  
+        - Make sure to be in the branch that you want changes to merge into. The type, `git merge <name of branch>` which merges the named branch into the branch you are logged into, in the terminal. 
+        * <i>If master or main branch is being updated by others, you may not want to get too far behind those changes, therefore, try `git merge main` from withing the branch to make sure that before your PR is completed and branch is merged into main, you have the most updated version of main to merge into.</i> 
+          <li>`git branch -d <name of branch to delete>`</li>
+        - This command deletes branches locally. <i>Branches cannot be deleted from within them, so, make sure to checkout of the branch first. (And Make sure to pull any changes from a remote repo before deleting the branch.) </i> The branch will need to be manually deleted on Github, too.  
+          <li>`git reset`</li>
+        - To undo staged files (i.e. things added but not yet committed in git) type `git reset`. To undo committed files, type `git reset HEAD~1` where "HEAD" means the last commit, and `1` means one committ before the last commit. Therefore, to reset a file to three commits ago, use `git reset HEAD~2`. 
+          <li>`git log`</li>
+        - Displays a log of all commits that have taken place. To go back to a particular commit and reset a file, type `git reset <hash number>`. This unstages commits up to that point. To delete commits, type `git reset --hard <commit number>` which will delete all changes up to the commit number entered.  
+        </dl>
+    </div>
+  </body>
+</html>
