@@ -50,15 +50,19 @@
       <h2>Getting Started with Git, Github and the Command Line Interface</h2>
       
       <h3>What is "Git" and "Github"?</h3>
-      <p> <b>Git</b> is a <i>Version Control System</i> used to track and manage programming and coding projects. It keeps a snapshot of all changes and updates made to a project (i.e. all <i>versions</i> of a project) so that changes can be tracked, edited and managed from any point in time. It also allows for others to collaborate on a shared project when it's uploaded to an online cloud-based platform like, <a href="https://github.com/">Github</a>.</p>
+      <p><b>Git</b> is a <i>Version Control System</i> used to track and manage programming and coding projects. It keeps a snapshot of all changes and updates made to a project (i.e. all <i>versions</i> of a project) so that changes can be tracked, edited and managed from any point in time. It also allows for others to collaborate on a shared project when it's uploaded to an online cloud-based platform like, <a href="https://github.com/">Github</a>.</p>
+      
       <p><i>Note:</i> When developers are working on a project, that project is called a <i>repository</i> (or <i>repo</i> for short).</p> 
-      <p><b>Github</b> is a popular cloud-based platform that developers can use to store, edit and manage their <i>repositories</i> remotely. This is especially helpful when working on group projects or if developers need to use other computers (like a work computer) to access their projects. Turning a project into a <i>"git repo"</i> allows developers to upload local projects (i.e. projects made on their computer) onto a remote (online) platform. </p>
+      
+      <p><b>Github</b> is a popular cloud-based platform that developers can use to store, edit and manage their <i>repositories</i> remotely. This is especially helpful when working on group projects or if developers need to use other computers (like a work computer) to access their projects. Turning a project into a <i>"git repo"</i> allows developers to upload local projects (i.e. projects made on their computer) onto a remote (online) platform. </p> 
+
+      <p>The <b>Command Line Interface</b> or simply, the <i>command line</i>, is an way to interact with a computer program by writing text. The following commands are written in the <i>command line</i>.</p> <img src="add pictures of terminal vs gui"
     </div>
 
     <div id="_gitcommands">
       <h2>Basic Git Commands:</h2>
-        <p>Below is a list of git commands and a description of what they do.</p>
-        <p><i><b>Commands</b> are shown here with `backtics` around them. <b>Options</b> use (-, --) dashes and give additional instruction for the command. Text found in between greater than and less than symbols (&lt; ... &gt;) signifies a blank space to add your own text in. Often used when naming things</i> .</p> 
+        <h4><p>Below is a list of git commands and a description of what they do.</p></h4>
+        <p><i><b>Commands</b> are shown here with `backtics` around them. <b>Options</b> use (-, --) dashes and give additional instruction for the command. Text found in between greater-than and less-than symbols (&lt; ... &gt;) signifies a blank space to add your own text in (often used when naming things)</i>.</p> 
     </div> 
     <div class="column1of2">    
       <dl>
@@ -68,17 +72,16 @@
           <dd>Shows files that have been added or modified in a repository. <i>Save changes in VSC by pressing "command+s". Any unsaved file in VSC will have a white dot that appears in the tab. Local files will need to be saved by typing esc and :w.</i></dd> 
         <dt><b>`git add`</b></dt>
           <dd>Stages selected files (or all files if I simply type . instead of each individual file) to be committed. Don't forget to add a commit message -m "Adds a Commit message" -m "Adds additional content." If I do forget, the command line will ask me to add a message anyway. I need to write it in quotes for it to accept my message. Use single quotes for quoting in the command line when writing messages in double quotes! Duh!</dd>
-          <dt><b>`git commit`</b></dt>
+        <dt><b>`git commit`</b></dt>
           <dd>Commits/makes those changes locally but doesn't publish those changes onto Github until I push them there. <i>(For modified files, i.e. not newly created ones, I can skip `git add .` and use `git commit -am "commit message"` which adds and commits with a message at the same time.)</i></dd>
-          <dt><b>`git push`</b></dt>
+        <dt><b>`git push`</b></dt>
           <dd><i>Remember to save files locally before pushing them into a remote repo. (In VSC, type ctrl+s to save README.md, for instance. Or esc :w if in an html doc.)</i> When pushing to an online repo for the first time, set an upstream location to push everything to. The command line will suggest how to establish an upstream location. Type `git push --set-upstream origin main` or `git push -u origin main` for short. Once that connection is established, easily publish all commits with `git push`.<I> (However, you will need to connect local a repo with online repo first by using `git remote + ssh location.` See instructions in "git remote" below.)</i></dd>
-          <dt><b>`git pull`</b></dt>
+        <dt><b>`git pull`</b></dt>
           <dd>The opposite of push. If I modify a file or add something to a repository on Github or another host, I can pull it from there and have those changes appear on my local machine. I do not need to add a location after the command like I would with git clone because the file in my local terminal should already be associated with the repo in Github. Assuming I have connected my local machine with Github via an ssh key.</dd>
-          <dt><b>`git clone`</b></dt>
+        <dt><b>`git clone`</b></dt>
           <dd>If there is a repo that IS NOT on my local machine but I want to bring it down to use on my machine, I use the git clone plus location of the file (ssh clone address) which can be found in the "code" button on Github.</dd>
-          <dt><b>`git remote`</b></dt>
-        - Allows a local repository to be connected to an online repo. Use `git remote add origin <ssh link>` to connect it. 
-        - `git remote -v` shows any repositories that are connected to the local repo.   
+        <dt><b>`git remote`</b></dt>
+        <dd>Allows a locally made repository to be uploaded to an online platform like, <i>Github</i>. First, create a repository on Github and name it. Then, in the command line, type `git remote add origin &lt;ssh link or https link supplied by Github&gt;` to connect it to the repository made online. Make sure changes are saved locally in VSC with "command+s", <i>add</i> and <i>commit</i> those changes. Finally, <i>push</i> those changes up to <i>Github</i> with the command, `git push --set-upstream origin main` which pushes all contents in the repository into the romote repo. The command, `git remote -v` shows any repositories that are connected to the local repo.</dd>   
         </dl>
     </div>
     <div class="column2of2"> 
